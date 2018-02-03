@@ -93,7 +93,7 @@
               </div>
               
               <div>
-                <input type="text" name="password2"  class="form-control" placeholder="repeter le mot de passe" required="" />
+                <input type="password" name="password2"  class="form-control" placeholder="repeter le mot de passe" required="" />
               </div>
               
               <div>

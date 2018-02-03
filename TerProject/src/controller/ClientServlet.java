@@ -38,8 +38,8 @@ public class ClientServlet extends HttpServlet {
 			
 			request.setAttribute("clients",clientModel.selectClient(null));
 			
-			RequestDispatcher rd= request.getRequestDispatcher("/client.jsp");
-			rd.forward(request, response);
+			RequestDispatcher rd= request.getRequestDispatcher("/form.jsp");
+			rd.forward(request, response); 
 			
 		}catch(Exception e){
 			
