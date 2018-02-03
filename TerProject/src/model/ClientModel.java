@@ -89,23 +89,23 @@ public class ClientModel extends NetfloxDB {
 	
 	public void saveClient(String nom, String prenom, String email, String tel, String password ){
 		
-		try{
+		try
+		{
+			System.out.println("***************** DEBUT INSERTION**************");
 			
-			PreparedStatement st=conn.prepareStatement("INSERT INTO CLIENT(idClient, nomadmin,prenomadmin,email,tel,motpasse) VALUES (?,?,?,?,?,?) ");
-			st.setInt(1, 5);
-			st.setString(2, nom);
-			st.setString(3, prenom);
-			st.setString(2, email);
-			st.setString(2, tel);
-			st.setString(2, password);
+			PreparedStatement st=conn.prepareStatement("INSERT INTO CLIENT( nomadmin,prenomadmin,email,tel,motpasse) VALUES (?,?,?,?,?) ");
+			st.setString(1, nom);
+			st.setString(2, prenom);
+			st.setString(3, email);
+			st.setString(4, tel);
+			st.setString(5, password);
 			int result=st.executeUpdate();
-			
-			if(result>0){
+			if(result==1){
 				System.out.println("Insertion reussie");
 			}else{
 				System.out.println("Insertion echouée");
 			}
-		}catch(Exception e){}
+		}catch(Exception e){System.out.println(e.getMessage());}
 		
 		
 	}
@@ -134,8 +134,6 @@ public class ClientModel extends NetfloxDB {
 	}
 	
 
-	
-	
 	/* Methode pour supprimer un client 
 	 * de la base de données en utilisant son id
 	

@@ -33,6 +33,14 @@ public class InscriptionClientServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		if(request.getSession().getAttribute("client")!=null){
+			
+			RequestDispatcher rd=request.getRequestDispatcher("/erorPage..jsp");
+			rd.forward(request, response);
+		}
+		
+		RequestDispatcher rd=request.getRequestDispatcher("/login.jsp");
+		rd.forward(request, response);
 	}
 
 	/**
@@ -55,7 +63,7 @@ public class InscriptionClientServlet extends HttpServlet {
 			RequestDispatcher rd=request.getRequestDispatcher("/index.jsp");
 			rd.forward(request, response);
 			
-		}catch(Exception e){ }
+		}catch(Exception e){System.out.println(e.getMessage()) ;}
 
 	}
 
