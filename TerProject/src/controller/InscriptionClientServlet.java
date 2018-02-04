@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.ClientModel;
 
+//Auteur: OUMAROU KABORE
 
 /**
  * Servlet implementation class InscriptionClientServlet

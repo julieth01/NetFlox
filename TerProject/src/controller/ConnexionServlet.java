@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import entities.Client;
 import model.ClientModel;
 
+//Auteur: OUMAROU KABORE
 
 /**
  * Servlet implementation class Connexion
