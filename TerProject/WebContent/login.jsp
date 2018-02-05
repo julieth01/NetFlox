@@ -8,13 +8,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	
-	<style type="text/css">
-	.logo_netflox{
-	color:#B22222;}
-	</style>
-	
-	
+		
     <title>NetFlox</title>
 
     <!-- Bootstrap -->
@@ -28,9 +22,22 @@
 
     <!-- Custom Theme Style -->
     <link href="css/custom.min.css" rel="stylesheet">
+    
+    
+    	<style type="text/css">
+	.error{
+		color:red;
+	}
+	
+	body{
+	background-color:red;
+	background-image:url(images/back.jpg);
+	}
+	
+	</style>
   </head>
 
-  <body class="login">
+  <body class="login" background="back.jpg">
     <div>
       <a class="hiddenanchor" id="signup"></a>
       <a class="hiddenanchor" id="signin"></a>
@@ -41,6 +48,7 @@
           <section class="login_content">
             <form method="POST" action="ConnexionServlet">
               <h1>Connexion Client</h1>
+              <span class="error">${erreur}</span>
               <div>
                 <input type="text" name="email" class="form-control" placeholder="pseudo" required="" />
               </div>
@@ -123,5 +131,6 @@
         </div>
       </div>
     </div>
+     <br/><br/><br/><br/>
   </body>
 </html>

@@ -23,6 +23,8 @@ import model.ClientModel;
 public class ConnexionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
    
+	private static String ATT_ERREUR="erreur";
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -47,7 +49,7 @@ public class ConnexionServlet extends HttpServlet {
 			rd.forward(request, response);
 		}
 		
-		RequestDispatcher rd=request.getRequestDispatcher("/login.jsp");
+		RequestDispatcher rd=request.getRequestDispatcher("login.jsp");
 		rd.forward(request, response);
 		
 	}
@@ -83,7 +85,8 @@ public class ConnexionServlet extends HttpServlet {
 					//rd.forward(request, response);
 				}
 			}
-		
+				
+				request.setAttribute(ATT_ERREUR, "Les identifaints sont incorrects");
 				RequestDispatcher rd=request.getRequestDispatcher("/login.jsp");
 				rd.forward(request, response);
 			
