@@ -43,7 +43,7 @@ public class ConnexionServlet extends HttpServlet {
 		
 		if(client!=null){
 			System.out.println("La session n'est pas null");
-			RequestDispatcher rd=request.getRequestDispatcher("/ConnexionServlet/index.jsp");
+			RequestDispatcher rd=request.getRequestDispatcher("/ConnexionServlet/form.jsp");
 			rd.forward(request, response);
 		}
 		
@@ -75,9 +75,12 @@ public class ConnexionServlet extends HttpServlet {
 					request.getSession().setAttribute("client", client);
 					}
 					
-					//Redirection vers la page d'accueil
-					RequestDispatcher rd=request.getRequestDispatcher("/index.jsp");
-					rd.forward(request, response);
+					//Redirection vers le controlleur ClientServlet
+					
+					response.sendRedirect(request.getContextPath() + "/ClientServlet");
+					
+					//RequestDispatcher rd=request.getRequestDispatcher("/form.jsp");
+					//rd.forward(request, response);
 				}
 			}
 		

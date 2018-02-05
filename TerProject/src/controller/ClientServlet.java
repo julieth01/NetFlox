@@ -36,7 +36,7 @@ public class ClientServlet extends HttpServlet {
 		try{
 			ClientModel clientModel=new ClientModel();
 			
-			request.setAttribute("clients",clientModel.selectClient(null));
+			request.setAttribute("listClient",clientModel.selectClient(null));
 			
 			RequestDispatcher rd= request.getRequestDispatcher("/form.jsp");
 			rd.forward(request, response); 
