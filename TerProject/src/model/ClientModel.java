@@ -41,10 +41,11 @@ public class ClientModel extends NetfloxDB {
 			while(rs.next()){
 				
 				client=new Client();
-				
+				client.setIdClient(rs.getInt("idClient"));
 				client.setNomClient(rs.getString("nomAdmin"));
 				client.setPrenomClient(rs.getString("prenomAdmin"));
 				client.setEmail(rs.getString("email"));
+				client.setTel(rs.getString("tel"));
 				listClient.add(client);
 			
 			}

@@ -86,7 +86,7 @@ public class ConnexionServlet extends HttpServlet {
 				}
 			}
 				
-				request.setAttribute(ATT_ERREUR, "Les identifaints sont incorrects");
+				request.setAttribute(ATT_ERREUR, "Les identifiants sont incorrects");
 				RequestDispatcher rd=request.getRequestDispatcher("/login.jsp");
 				rd.forward(request, response);
 			

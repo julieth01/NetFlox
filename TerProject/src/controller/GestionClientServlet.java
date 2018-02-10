@@ -1,8 +1,7 @@
 package controller;
 
-//Auteur: OUMAROU KABORE
-
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,16 +13,16 @@ import javax.servlet.http.HttpServletResponse;
 import model.ClientModel;
 
 /**
- * Servlet implementation class ClientServlet
+ * Servlet implementation class GestionClientServlet
  */
-@WebServlet("/ClientServlet")
-public class ClientServlet extends HttpServlet {
+@WebServlet("/GestionClientServlet")
+public class GestionClientServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ClientServlet() {
+    public GestionClientServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,18 +31,32 @@ public class ClientServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
+		//boolean modif=(boolean) request.getAttribute("modif");
+		/*boolean supp=(boolean) request.getAttribute("supp");
+		
+		Integer idClient=(Integer) request.getAttribute("idClient");
+		
 		try{
-			ClientModel clientModel=new ClientModel();
+			ClientModel clientModel=new ClientModel();	
 			
-			request.setAttribute("listClient",clientModel.selectClient(null));
-			
-			RequestDispatcher rd= request.getRequestDispatcher("/form.jsp");
-			rd.forward(request, response); 
+			if(supp==true){
+				clientModel.deleteId(idClient);
+				response.sendRedirect(request.getContextPath() + "/ClientServlet");
+			}
 			
 		}catch(Exception e){
 			
 		}
+		
+		*/
+		
+	
+		RequestDispatcher rd=request.getRequestDispatcher("/accueil.jsp");
+		rd.forward(request, response);
+		
+		
+		
 		
 	}
 
