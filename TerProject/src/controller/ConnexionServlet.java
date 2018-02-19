@@ -38,19 +38,19 @@ public class ConnexionServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		request.getSession().invalidate();
+		//request.getSession().invalidate();
 		
 		// Vérification de la présence de la session Client
 		Client client=(Client) request.getSession().getAttribute("client");
 		
 		if(client!=null){
 			System.out.println("La session n'est pas null");
-			RequestDispatcher rd=request.getRequestDispatcher("/ConnexionServlet/form.jsp");
+			RequestDispatcher rd=request.getRequestDispatcher("/accueil.jsp");
+			rd.forward(request, response);
+		}else{
+			RequestDispatcher rd=request.getRequestDispatcher("login.jsp");
 			rd.forward(request, response);
 		}
-		
-		RequestDispatcher rd=request.getRequestDispatcher("login.jsp");
-		rd.forward(request, response);
 		
 	}
 
@@ -79,10 +79,11 @@ public class ConnexionServlet extends HttpServlet {
 					
 					//Redirection vers le controlleur ClientServlet
 					
-					response.sendRedirect(request.getContextPath() + "/ClientServlet");
+					//response.sendRedirect(request.getContextPath() + "/ClientServlet");
 					
-					//RequestDispatcher rd=request.getRequestDispatcher("/form.jsp");
-					//rd.forward(request, response);
+					//Redirection vers la page d'acceuil
+					RequestDispatcher rd=request.getRequestDispatcher("/accueil.jsp");
+					rd.forward(request, response);
 				}
 			}
 				

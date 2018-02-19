@@ -52,7 +52,7 @@
              
               
               <c:if test="${erreur!=null}"> <div class="alert alert-danger" role="alert"> ${erreur}  </div></c:if>
-             
+               <c:if test="${inscription!=null}"><div class="alert alert-info" role="alert"> ${inscription}  </div></c:if>
               <div>
                 <input type="text" name="email" class="form-control" placeholder="pseudo" required="" />
               </div>

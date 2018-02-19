@@ -38,7 +38,7 @@ public class ClientServlet extends HttpServlet {
 			
 			request.setAttribute("listClient",clientModel.selectClient(null));
 			
-			RequestDispatcher rd= request.getRequestDispatcher("/form.jsp");
+			RequestDispatcher rd= request.getRequestDispatcher("/acceuil.jsp");
 			rd.forward(request, response); 
 			
 		}catch(Exception e){

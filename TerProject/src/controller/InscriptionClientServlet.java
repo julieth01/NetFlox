@@ -59,9 +59,14 @@ public class InscriptionClientServlet extends HttpServlet {
 		
 	try{
 			ClientModel clientModel=new ClientModel();
+			
+			if(nom==null || prenom==null || password==null ||  email==null || tel==null  ){
+				throw new Exception(); 
+			}
+			
 			clientModel.saveClient(nom, prenom, email, tel, password);
-			 
-			RequestDispatcher rd=request.getRequestDispatcher("/index.jsp");
+			 request.setAttribute("inscription", "Inscription reussie, connectez vous!");
+			RequestDispatcher rd=request.getRequestDispatcher("/login.jsp");
 			rd.forward(request, response);
 			
 		}catch(Exception e){System.out.println(e.getMessage()) ;}

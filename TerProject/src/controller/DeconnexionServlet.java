@@ -37,7 +37,7 @@ public class DeconnexionServlet extends HttpServlet {
 			request.getSession().invalidate();
 		}
 		
-		RequestDispatcher rd=request.getRequestDispatcher("/login.jsp");
+		RequestDispatcher rd=request.getRequestDispatcher("/accueil.jsp");
 		rd.forward(request, response);
 	}
 
