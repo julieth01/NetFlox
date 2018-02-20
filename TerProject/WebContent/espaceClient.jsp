@@ -85,7 +85,31 @@
 </nav>
 
 <div class="tab-content" id="nav-tabContent">
-  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"> <br> Mes achats</div>
+  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"> 
+  
+  <br> <h6>La liste de mes videos achetées</h6><br>
+   <div class="row">
+          <div class="col-lg-3" backgroud="">
+           <a href="VisualisationServlet?videoId=0"><img src="images/serie the magicians.jpg" /></a>
+          </div><!-- /.col-lg-3 -->
+          <div class="col-lg-3">
+          <a href="VisualisationServlet?videoId=0"> <img src="images/serie the exorcist.jpg" /></a>
+          </div><!-- /.col-lg-3 -->
+          <div class="col-lg-3">
+           <a href="VisualisationServlet?videoId=0"> <img src="images/serie blacklist.jpg" /></a>
+          </div><!-- /.col-lg-4 -->
+          
+           <div class="col-lg-3">
+           <a href="VisualisationServlet?videoId=0"> <img src="images/super naturel serie.jpg" /> <a href="VisualisationServlet?videoId=0">
+          </div><!-- /.col-lg-4 -->
+          
+          
+          </div><!-- /.col-lg-3 -->
+  
+  
+  
+  </div>
+  <!-- Fin fenetre des achats   -->
  
  
  

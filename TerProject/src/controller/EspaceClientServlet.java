@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import entities.Client;
+
 /**
  * Servlet implementation class EspaceClientServlet
  */
@@ -30,8 +32,19 @@ public class EspaceClientServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		RequestDispatcher rd=request.getRequestDispatcher("/espaceClient.jsp");
-		rd.forward(request, response);
+		//Recuperation de la variable de session
+		Client client=(Client) request.getSession().getAttribute("client");
+		
+		//Si la session ne vaut pas null, alors on permet l'utilisateur d'accéder la page espace membre
+		if(client!=null){
+			RequestDispatcher rd=request.getRequestDispatcher("/espaceClient.jsp");
+			rd.forward(request, response);
+		}else{
+			// Si non on le redirige vers la page de connexion
+			RequestDispatcher rd=request.getRequestDispatcher("/login.jsp");
+			rd.forward(request, response);
+		}
+	
 		
 	}
 
