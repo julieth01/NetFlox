@@ -23,7 +23,10 @@
     <link href="vendors/starrr/dist/starrr.css" rel="stylesheet">
     <!-- bootstrap-daterangepicker -->
     <link href="css/daterangepicker.css" rel="stylesheet">
-
+	
+	<!-- bootstrap-daterangepicker -->
+    <link href="css/dataTable.bootstrap.css" rel="stylesheet">
+	
     <!-- Custom Theme Style -->
     <link href="css/custom.min.css" rel="stylesheet">
     
@@ -43,7 +46,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.jsp" class="site_title"><span class='logo_netflox'><i class="fa fa-video-camera"></i></span> <span>NetFlox</span></a>
+              <a href="accueil.jsp" class="site_title"><span class='logo_netflox'><i class="fa fa-video-camera"></i></span> <span>NetFlox Admin.</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -54,75 +57,10 @@
 
             <br />
 
-            <!-- sidebar menu -->
-            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-              <div class="menu_section">
-                
-                <ul class="nav side-menu">
-                  <li><a><i class="fa fa-film"></i> Videos <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="index.html">Uploader</a></li>
-                      <li><a href="index2.html">Gerer</a></li>
-                      
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-users"></i> Clients <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="form.html">Liste clients</a></li>
-                     
-                      <li><a href="form_buttons.html">Form Buttons</a></li>
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-desktop"></i> Abonnements <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="general_elements.html">General Elements</a></li>
-                      <li><a href="media_gallery.html">Media Gallery</a></li>
-                      <li><a href="typography.html">Typography</a></li>
-                      
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-table"></i> Tables <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="tables.html">Tables</a></li>
-                      <li><a href="tables_dynamic.html">Table Dynamic</a></li>
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-bar-chart-o"></i> Data Presentation <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="chartjs.html">Chart JS</a></li>
-                      <li><a href="chartjs2.html">Chart JS2</a></li>
-                      <li><a href="morisjs.html">Moris JS</a></li>
-                      <li><a href="echarts.html">ECharts</a></li>
-                      <li><a href="other_charts.html">Other Charts</a></li>
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-clone"></i>Layouts <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="fixed_sidebar.html">Fixed Sidebar</a></li>
-                      <li><a href="fixed_footer.html">Fixed Footer</a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-              <div class="menu_section">
-                <h3>Live On</h3>
-                <ul class="nav side-menu">
-                  <li><a><i class="fa fa-bug"></i> Additional Pages <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="e_commerce.html">E-commerce</a></li>
-                      <li><a href="projects.html">Projects</a></li>
-                      <li><a href="project_detail.html">Project Detail</a></li>
-                      <li><a href="contacts.html">Contacts</a></li>
-                      <li><a href="profile.html">Profile</a></li>
-                    </ul>
-                  </li>
-               
-                                    
-                  <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> Landing Page <span class="label label-success pull-right">Coming Soon</span></a></li>
-                </ul>
-              </div>
+            <!-- Inclusion du Menu d'administration -->
+            
+             <%@include file="menuAdministration.jsp" %>
 
-            </div>
             <!-- /sidebar menu -->
 
 
@@ -177,53 +115,36 @@
 
         <!-- page content -->
          <div class="right_col" role="main">
-          <div class="">
+         
             <div class="page-title">
               <div class="title_left">
-                <h3>Gestion des clients</h3>
+                <h3><i class="fa fa-users"/> </i> Gestion des clients</h3>
               </div>
 
               <div class="title_right">
                 <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Rechercher...">
-                    <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">Go!</button>
-                    </span>
-                  </div>
+                  
                 </div>
               </div>
             </div>
-            <div class="clearfix"></div>
+            <div class="clearfix"></div> 
+          
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
                     <h2>Liste clients <small></small></h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
+                  
+                     
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <br />
+                  <br />
                   
-                      
+                      <c:set var="count" value="0" scope="page" />
                       <c:choose>
                       	<c:when test="${! empty listClient}">
-                      	 <table class="table table-striped">
+                      	 <table id="tableClient" class="table table-striped table-bordered">
                       <thead>
                         <tr>
                           <th>#</th>
@@ -237,30 +158,38 @@
                       <tbody>
                       		 <c:forEach items="${listClient}" var="client">
                       			<tr>
-			                          <th scope="row">1</th>
+                      			<c:set var="count" value="${count + 1}" scope="page"/>
+			                          <td><c:out value="${count}"></c:out></td>
 			                          <td><c:out value="${client.nomClient}"></c:out> </td>
 				                      <td><c:out value="${client.prenomClient}"></c:out></td> 
 				                      <td><c:out value="${client.email}"></c:out> </td>
 				                      <td><c:out value="${client.tel}"></c:out> </td>
-				                      <td><font color="red" ><a class="btn btn-info" href="GestionClientServlet?modif=ture&idClient=${client.idClient}"><i class="fa fa-pencil"></i>Modif</a><a class="btn btn-danger" href="GestionClientServlet?supp=true&idClient=${client.idClient}"> <i class="fa fa-trash"></i> Supp</a></font> </td>
+				                      <td><font color="red" ><a class="btn btn-success" href="ClientServlet?update=true&idClient=${client.idClient}"><i class="fa fa-pencil"></i> Modif</a><a class="btn btn-danger" href="GestionClientServlet?supp=true&idClient=${client.idClient}"> <i class="fa fa-trash"></i> Supp</a></font> </td>
                        		    </tr>
                        		    
                      		 </c:forEach>
         			    
                       </tbody>
                     </table>
+                      	
                       	</c:when>
                       	
                       	<c:otherwise>
                       		<h1>Aucun client retrouvé </h1>
                       	</c:otherwise>
                       
-                      </c:choose>
+               </c:choose>
                      
                         
                      
                    
                      </div>
+                     
+                     </div>
+                     
+                     </div>
+                     </div>
+                    
         <!-- /page content -->
 
         <!-- footer content -->
@@ -276,6 +205,13 @@
 
     <!-- jQuery -->
     <script src="vendors/jquery/dist/jquery.min.js"></script>
+    
+    <!-- jQuery -->
+    <script src="js/dataTable.min.js"></script>
+    
+    <!-- jQuery -->
+    <script src="js/dataTable.bootstrap.min.js"></script>
+    
     <!-- Bootstrap -->
     <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- FastClick -->
@@ -309,6 +245,13 @@
     <script src="vendors/starrr/dist/starrr.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="js/custom.min.js"></script>
+    
+	<script type="text/javascript">
+	$(document).ready(function() {
+	    $('#tableClient').DataTable();
+	} );
+	</script>
+	
 	
 	
 	</br></br></br></br></br>

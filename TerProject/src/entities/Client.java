@@ -18,12 +18,11 @@ public class Client {
 	}
 	
 	//Constructeur avec parametre
-	public Client(int idClient, String nomClient, String prenomClient, String adresseClient, String motPasse, String email, String tel){
+	public Client(int idClient, String nomClient, String prenomClient, String adresseClient,  String email, String tel){
 		this.idClient=idClient;
 		this.nomClient=nomClient;
 		this.prenomClient=prenomClient;
 		this.adresseClient=adresseClient;
-		this.motPasse=motPasse;
 		this.email=email;
 		this.tel=tel;
 	}

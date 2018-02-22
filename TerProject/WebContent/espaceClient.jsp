@@ -23,6 +23,11 @@
      <style type="text/css">
     	.logo_netflox{
 	color:#B22222;}
+	.profil_label{
+		padding-right: 200px;
+		width: 250px;
+	}
+	.form_label{float: left;}
 
     
     </style>
@@ -88,7 +93,9 @@
   <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"> 
   
   <br> <h6>La liste de mes videos achetées</h6><br>
+  
    <div class="row">
+          
           <div class="col-lg-3" backgroud="">
            <a href="VisualisationServlet?videoId=0"><img src="images/serie the magicians.jpg" /></a>
           </div><!-- /.col-lg-3 -->
@@ -100,11 +107,11 @@
           </div><!-- /.col-lg-4 -->
           
            <div class="col-lg-3">
-           <a href="VisualisationServlet?videoId=0"> <img src="images/super naturel serie.jpg" /> <a href="VisualisationServlet?videoId=0">
+           <a href="VisualisationServlet?videoId=0"> <img src="images/super naturel serie.jpg" /> </a>
           </div><!-- /.col-lg-4 -->
           
           
-          </div><!-- /.col-lg-3 -->
+  </div>
   
   
   
@@ -114,26 +121,46 @@
  
  
  
-  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"><br> Mes locations </div>
+  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+  
+  <br>  <h5>Vous avez aucune video dans votre liste</h5>
+  
+  </div>
   
   
   
-  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab"><br> Mon profil</div>
+  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+  
+  <br> 
+  
+  
+  <div class="row">
+  	
+  	<div class="col-lg-4">
+  	
+  	<img alt="photo de profil" src="images/user.png">
+  	
+  	</div>
+  
+  <div class="col-lg-8">
+  	Mon profil
+  	<hr>
+  	<label class="profil_label"><b>Nom:</b></label><c:out value="${client.nomClient}"/>   <br>
+  	<label class="profil_label"><b>Prenom:</b></label> <c:out value="${client.prenomClient}"/>  <br>  
+  	<label class="profil_label"><b>Email:</b></label> <c:out value="${client.email}"/> <br>
+  	<label class="profil_label"><b>Tel:</b></label><c:out value="${client.tel}"/> <br>
+  	<label class="profil_label"><b>Password:</b></label>*************** <a href="#" data-toggle="modal" data-target="#myModalPassword"> <i class="fa fa-"></i> changer</a>
+  <button class="btn btn-lg btn-outline-primary btn-block" data-toggle="modal" data-target="#myModal">Modifier mon profil</button>
+  	
+  </div>
+  
+  	
+  </div>
+  
+  </div>
 
 </div>
 
-
-
-
-
-
-
-
-
-
-
-       
-	
 
      </div>
      
@@ -153,13 +180,87 @@
      <h4>Genres</h4>
      <hr/>
 
-     
-     
      </div>
-     
-     
-     
+
           </div><!-- /.row -->
+      
+      
+      
+  <!-- Modal de modification du profil -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5>Modifier votre profil</h3>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          
+        </div>
+        <div class="modal-body">
+        
+          <form method="POST" action="UpdateClientServlet"> 
+          
+            <input type="text" name="nom" class="form-control" value="${client.getNomClient()}"><br/>
+          	<input type="text" name="prenom" class="form-control" value="${client.getPrenomClient()}" ><br/>
+          	<input type="text" name="email" class="form-control" value="${client.getEmail()}" ><br/>
+          	<input type="text" name="tel" class="form-control" value="${client.getTel()}"><br/>
+          	
+          	<button class="btn btn-outline-default"><i class="fa fa-check"></i> Modifier</button> 
+          	<button class="btn btn-outline-default" data-dismiss="modal"> <i class="fa fa-close"> </i> Fermer</button>	
+          </form>
+          
+        </div>
+        <div class="modal-footer">
+         
+        </div>
+      </div>
+      
+    </div>
+  </div>
+      
+      
+      
+ <!-- Modal de modification du mot de passe -->
+  <div class="modal fade" id="myModalPassword" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5>Modification du mot de passe</h3>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          
+        </div>
+        <div class="modal-body">
+        
+          <form method="POST" action="#"> 
+          
+            
+          	<input type="password" name="tel" placeholder="Ancien password" class="form-control"  aria-describedby="basic-addon2"><br/>
+          	<input type="password" name="tel" placeholder="Nouveau password" class="form-control"  aria-describedby="basic-addon2"><br/>
+          	<input type="password" name="tel" placeholder="Confirmer password" class="form-control"  aria-describedby="basic-addon2"><br/>
+          	
+          	<button class="btn btn-outline-default"><i class="fa fa-check"></i> Modifier</button> 
+          	<button class="btn btn-outline-default" data-dismiss="modal"> <i class="fa fa-close"> </i> Fermer</button>	
+          </form>
+          
+        </div>
+        <div class="modal-footer">
+         
+        </div>
+      </div>
+      
+    </div>
+  </div>
+      
+      
+      
+      
+      
+      
+      
+      
       
 
 <script src="vendors/jquery/dist/jquery.min.js"></script>

@@ -42,8 +42,8 @@ public class ClientModel extends NetfloxDB {
 				
 				client=new Client();
 				client.setIdClient(rs.getInt("idClient"));
-				client.setNomClient(rs.getString("nomAdmin"));
-				client.setPrenomClient(rs.getString("prenomAdmin"));
+				client.setNomClient(rs.getString("nomClient"));
+				client.setPrenomClient(rs.getString("prenomClient"));
 				client.setEmail(rs.getString("email"));
 				client.setTel(rs.getString("tel"));
 				listClient.add(client);
@@ -58,6 +58,7 @@ public class ClientModel extends NetfloxDB {
 	}
 	
 	
+	//Methode permettant de verifier les parameètre de connexion d'un client
 	public Vector<Client> verifConnexion(String email, String password){
 	
 		Vector<Client> listClient=new Vector<>();
@@ -71,8 +72,8 @@ public class ClientModel extends NetfloxDB {
 			while(rs.next()){
 				client=new Client();
 				client.setIdClient(rs.getInt("idClient"));
-				client.setNomClient(rs.getString("nomAdmin"));
-				client.setPrenomClient(rs.getString("prenomAdmin"));
+				client.setNomClient(rs.getString("nomClient"));
+				client.setPrenomClient(rs.getString("prenomClient"));
 				client.setEmail(rs.getString("email"));
 				client.setTel(rs.getString("tel"));
 				listClient.add(client);
@@ -94,7 +95,7 @@ public class ClientModel extends NetfloxDB {
 		{
 			System.out.println("***************** DEBUT INSERTION**************");
 			
-			PreparedStatement st=conn.prepareStatement("INSERT INTO CLIENT( nomadmin,prenomadmin,email,tel,motpasse) VALUES (?,?,?,?,?) ");
+			PreparedStatement st=conn.prepareStatement("INSERT INTO CLIENT( nomclient,prenomclient,email,tel,motpasse) VALUES (?,?,?,?,?) ");
 			st.setString(1, nom);
 			st.setString(2, prenom);
 			st.setString(3, email);
@@ -115,6 +116,20 @@ public class ClientModel extends NetfloxDB {
 	 * Methode pour faire la mise à  jour d'un client
 	 */
 	public void updateClient(Client client){
+		
+		try{
+			
+			PreparedStatement st=conn.prepareStatement("UPDATE CLIENT SET nomClient=?, prenomClient=?, email=?, tel=? WHERE IDCLIENT=?");
+			st.setString(1, client.getNomClient());
+			st.setString(2, client.getPrenomClient());
+			st.setString(3, client.getEmail());
+			st.setString(4, client.getTel());
+			st.setInt(5, client.getIdClient());
+			
+			st.executeUpdate();
+			
+		}catch(Exception e){ }
+		
 		
 	}
 	

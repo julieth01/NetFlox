@@ -45,6 +45,7 @@ public class NetfloxDB {
 	
 	public boolean deleteId(int id, String tableName, String tableIdName){
 		try{
+			
 			Statement st=conn.createStatement();
 			int nbDelete=st.executeUpdate("DELETE FROM "+ tableName +" WHERE "+ tableIdName +" = "+id);
 			if(nbDelete>0){

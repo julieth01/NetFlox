@@ -58,8 +58,18 @@
           </c:choose>
 
           <form class="form-inline mt-2 mt-md-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Rechercher" aria-label="Rechercher">
+          
+           <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Rechercher...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-outline-danger" type="button">OK</button>
+                    </span>
+                  </div>
+          
+          
+            <!--  </a><input class="form-control mr-sm-2" type="text" placeholder="Rechercher" aria-label="Rechercher">
             <button class="btn btn-success my-2 my-sm-0" type="submit">Rechercher</button>
+            -->
           </form>
         </div>
       </nav>

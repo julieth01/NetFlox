@@ -23,7 +23,8 @@
      <style type="text/css">
     	.logo_netflox{
 	color:#B22222;}
-
+	
+	.container marketing{box-shadow: 10px 5px 5px red;}
     
     </style>
     
@@ -67,7 +68,9 @@
 
 
 	<br><br><br>
+	
 	<div class="container marketing">
+	
 	<div><h3>Visualiser vos films en direct</h3> </div> 
 	<hr color="orange"/>
 	

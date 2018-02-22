@@ -33,18 +33,38 @@ public class ClientServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		try{
-			ClientModel clientModel=new ClientModel();
-			
-			request.setAttribute("listClient",clientModel.selectClient(null));
-			
-			RequestDispatcher rd= request.getRequestDispatcher("/acceuil.jsp");
-			rd.forward(request, response); 
-			
-		}catch(Exception e){
-			
-		}
 		
+		String sIdClient=(String) request.getParameter("idClient");
+		
+		if(sIdClient!=null){
+			
+			Integer idClient=Integer.parseInt(sIdClient);
+
+			try {
+				ClientModel clientModel=new ClientModel();
+				
+				request.setAttribute("updateClient",clientModel.selectClient(idClient).get(0));
+				
+				RequestDispatcher rd= request.getRequestDispatcher("/adminUpdateClient.jsp");
+				rd.forward(request, response); 
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+			
+		}else{
+
+			try{
+				ClientModel clientModel=new ClientModel();
+				
+				request.setAttribute("listClient",clientModel.selectClient(null));
+				
+				RequestDispatcher rd= request.getRequestDispatcher("/form.jsp");
+				rd.forward(request, response); 
+				
+			}catch(Exception e){
+				
+			}
+		}		
 	}
 
 	/**
