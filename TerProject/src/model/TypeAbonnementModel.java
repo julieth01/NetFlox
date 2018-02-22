@@ -70,9 +70,10 @@ public class TypeAbonnementModel extends NetfloxDB {
 	public void updateTypeAbonnement(TypeAbonnement typeAbonnement){
 		
 		try {
-			PreparedStatement st=conn.prepareStatement("UPDATE CATEGORIE SET LIBELLEABONNEMENT=?, MONTANT=?  WHERE IDTYPEABONNEMENT=?");
+			PreparedStatement st=conn.prepareStatement("UPDATE TYPEABONNEMENT SET LIBELLEABONNEMENT=?, MONTANT=?  WHERE IDTYPEABONNEMENT=?");
 			st.setString(1, typeAbonnement.getLibelleAbonnement());
 			st.setDouble(2, typeAbonnement.getMontant());
+			st.setInt(3, typeAbonnement.getIdTypeAbonnement());
 			st.executeUpdate();
 			
 		} catch (Exception e) {
