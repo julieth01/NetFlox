@@ -138,116 +138,212 @@
                     <div class="clearfix"></div>
                   </div>
 					
-					<div class="row">
-					<div class="col-md-6 col-xs-12">
-					
-  		            <div class="x_panel">
-                    <br />
-  		           
-  		           <form class="form-horizontal form-label-left input_mask">
+      
+                    <div id="wizard" class="form_wizard wizard_horizontal">
+                      <ul class="wizard_steps">
+                        <li>
+                          <a href="#step-1">
+                            <span class="step_no">1</span>
+                            <span class="step_descr">
+                              Etape 1<br />
+                             <small>Informations sur la vidéo</small>
+                             </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#step-2">
+                            <span class="step_no">2</span>
+                            <span class="step_descr">
+                            Etape 2<br />
+                            <small>Infos sur les participants</small>
+                            </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#step-3">
+                            <span class="step_no">3</span>
+                            <span class="step_descr">
+                            Etape 3<br />
+                            <small>Upload des fichiers</small>
+                            </span>
+                          </a>
+                        </li>
+                      
+                      </ul>
+                      
+                      
+                      <form class="form-horizontal form-label-left" method="post" action="UploadVideoServlet" enctype="multipart/form-data">
+                      
+                      <div id="step-1">
 
-             
-
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Titre</label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" >
-                        </div>
-                      </div>
-                     
-                     
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Année production 
-                        </label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
-                        </div>
-                      </div>
-                      
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Date Sortie
-                        </label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input class="date-picker form-control col-md-7 col-xs-12" required="required" type="date">
-                        </div>
-                      </div>
-                      
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Prix de vente
-                        </label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
-                        </div>
-                      </div>
-                      
-                      
-                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Image Poster 
-                        </label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input class="date-picker form-control col-md-7 col-xs-12" required="required" type="file">
-                        </div>
-                      </div>
-                      
-                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Charger la video 
-                        </label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input class="date-picker form-control col-md-7 col-xs-12" required="required" type="file">
-                        </div>
-                      </div>
-                      
-                      <div class="form-group">
+                          <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Titre
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                              <input type="text" name="titre" id="titre" required="required" class="form-control col-md-7 col-xs-12">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Durée <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                              <input type="text" id="duree" name="duree" required="required" class="form-control col-md-7 col-xs-12">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="date" class="control-label col-md-3 col-sm-3 col-xs-12">Date de sortie</label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                              <input id="date" class="form-control col-md-7 col-xs-12" type="Date" name="dateSortie">
+                            </div>
+                          </div>
+                         
+                          
+                          <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Année de production
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                              <input id="anneeProduction" class="date-picker form-control col-md-7 col-xs-12" name="anneeProduction" required="required" type="text">
+                            </div>
+                          </div>
+                          
+                           <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Prix de vente
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                             <input id="prixVente" class="date-picker form-control col-md-7 col-xs-12" name="prixVente" required="required" type="text">
+                            </div>
+                          </div>
+						
+					<div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Resumé
                         </label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                          <textarea class="date-picker form-control col-md-7 col-xs-12" required="required" ></textarea>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <textarea name="resume" class="date-picker form-control col-md-7 col-xs-12" required="required" cols="4" rows="6" ></textarea>
+                        </div>
+                      </div>
+                       
+                       
+                       
+                       <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Catégorie
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <select id="heard" name="idCategorie" class="form-control" required>
+                          <option value="0">Selectionner</option>
+                          <c:forEach items="${listCategorie}" var="categorie">
+                          	<option value="${categorie.getIdCategorie()}"> <c:out value="${categorie.getLibelleCategorie()}"/> </option>
+                          	
+                          </c:forEach>
+                          </select>
+                          
+                        </div>
+                      </div>
+                       
+                          <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Genre
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <select id="heard" name="idGenre" class="form-control" required>
+                            <option value="">Selectionner</option>
+                           
+                           <c:forEach items="${listGenre}" var="genre">
+                          	<option value="${genre.idGenre}"> <c:out value="${genre.libelleGenre}"/> </option>
+                          	
+                          </c:forEach>
+                          
+                          </select>
+                        </div>
+                      </div>
+                          
+							
+                      </div>
+                      
+                      <div id="step-2">
+                        
+                          <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Réalisateur
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <select id="heard" name="realisateur" class="form-control">
+                            <option value="">Selectionner</option>
+                              <c:forEach items="${listParticipant}" var="realisateur">
+                          	<option value="${realisateur.idParticipant}"> <c:out value="${realisateur.nomParticipant}"/> <c:out value="${realisateur.prenomParticipant}"/> </option>
+                          	
+                          </c:forEach>
+                          
+                          </select>
+                        </div>
+                      </div>
+                        
+                        
+                        <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Acteur principal
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <select id="heard" name="acteurPrincipal" class="form-control">
+                            <option value="">Selectionner</option>
+                               <c:forEach items="${listParticipant}" var="realisateur">
+                          	<option value="${realisateur.idParticipant}"> <c:out value="${realisateur.nomParticipant}"/> <c:out value="${realisateur.prenomParticipant}"/> </option>
+                          	
+                          </c:forEach>                 
+                          </select>
+                        </div>
+                        </div>
+                        
+                        
+                        
+                         <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Ajouter un acteur
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <select id="heard" name="acteurSecondaire" class="form-control">
+                            <option value="">Selectionner</option>
+                            <c:forEach items="${listParticipant}" var="realisateur">
+                          	<option value="${realisateur.idParticipant}"> <c:out value="${realisateur.nomParticipant}"/> <c:out value="${realisateur.prenomParticipant}"/> </option>
+                          	
+                          </c:forEach>
+                          
+                          </select>
+                        </div>
+                        </div>
+                        
+                        
+                         <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Son rôle
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                              <input id="roleActeurSecondaire" class="date-picker form-control col-md-7 col-xs-12" name="role" type="text">
+                            </div>
+                          </div>
+                       
+                          
+                    </div>
+                      
+
+                      <div id="step-3">
+                        
+                        
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Image Poster 
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input class="date-picker form-control col-md-7 col-xs-12" name="fichier1"  type="file">
                         </div>
                       </div>
                       
-                     
-                      
-                      
-                      <div class="ln_solid"></div>
-                   
-
-                   
-                
-                 </div><!--  Xpanel -->
-                </div><!--  col-lg-6 -->
-                
-                
-              
-                
-                 <div class="col-md-6 col-xs-12">
-					
-  		            <div class="x_panel">
-  		           
-  		            
-  		            </div> 
-  		            
-  		            
-  		            
-  		            
-  		            
-  		            </div><!--  col-lg-6 -->
-                
-   						 <div class="form-group">
-                        <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-                          <button type="button" class="btn btn-success">Enregistrer</button>
-						   <button class="btn btn-primary" type="reset">Reinitialiser</button>
-                          
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Charger la video 
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input class="date-picker form-control col-md-7 col-xs-12" name="fichier2" type="file">
                         </div>
-                </form>         
-                      </div> <!--  row -->
-    
-    
-    
-    
-    
-    
-    
-    
+                      </div>
+
+							<center><button type="submit"  class="btn btn-primary"> <i class="fa fa-check"></i> Enregistrer</button></center>
+                      </div>
+   						</form>	
+                    </div>
+
          </div>
         <!-- /page content -->
 
@@ -302,12 +398,14 @@
     <script src="../vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script>
     <!-- starrr -->
     <script src="vendors/starrr/dist/starrr.js"></script>
+    
+    <script src="vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="js/custom.min.js"></script>
     
 	
 	
 	
-	</br></br></br></br></br>
+
   </body>
 </html>

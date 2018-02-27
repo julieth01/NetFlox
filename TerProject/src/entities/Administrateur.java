@@ -9,7 +9,25 @@ public class Administrateur {
 	private String motPase;
 	private String adresse;
 	private String email;
+
+//Constructeur sans parametre
 	
+	public Administrateur(){
+		
+	}
+	
+	
+	
+//Constructeur avec parametre
+	public Administrateur(Integer idAdmin, String nomAdmin, String prenomAdmin,
+			String motPase, String email) {
+		super();
+		this.idAdmin = idAdmin;
+		this.nomAdmin = nomAdmin;
+		this.prenomAdmin = prenomAdmin;
+		this.motPase = motPase;
+		this.email = email;
+	}
 	
 	
 	public Integer getIdAdmin() {

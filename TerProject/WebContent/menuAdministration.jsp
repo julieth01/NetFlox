@@ -4,7 +4,7 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-film"></i> Videos <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="video.jsp">Ajouter</a></li>
+                      <li><a href="UploadVideoServlet">Ajouter</a></li>
                       <li><a href="index2.html">Gerer</a></li>
                       <li><a href="index2.html">Series</a></li>
                       
@@ -27,7 +27,7 @@
                       <li><a href="CategorieServlet">Catégories</a></li>
                       <li><a href="GenreServlet">Genres de vidéo</a></li>
                       <li><a href="TypeAbonnementServlet">Type d'abonnement</a></li> 
-                      <li><a href="tables.html">Acteurs et realisateurs</a></li>
+                      <li><a href="ParticipantServlet">Acteurs et realisateurs</a></li>
                       
                     </ul>
                   </li>
@@ -42,7 +42,7 @@
                   
                     <li><a><i class="fa fa-dashboard"></i>Gerer les admin. <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="chartjs.html">Administrateurs</a></li>
+                      <li><a href="AdministrateurServlet">Administrateurs</a></li>
                     </ul>
                   </li>
 
