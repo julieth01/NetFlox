@@ -10,7 +10,7 @@ public class Video {
 	private Saison idSaison;
 	private Categorie idCategorie;
 	private String titre;
-	private int duree;
+	private String duree;
 	private int nbVue;
 	private int nbTelechargement;
 	private java.sql.Date dateSortie;
@@ -19,9 +19,10 @@ public class Video {
 	private double prixVente;
 	private String cheminAcces;
 	private boolean estEpisode;
+	private String imagePoster;
 	
 	private Vector<Acteur> listActeur;
-	private Realisateur realisateur;
+	private Participant realisateur;
 	
 
 	
@@ -55,10 +56,10 @@ public class Video {
 	public void setTitre(String titre) {
 		this.titre = titre;
 	}
-	public int getDuree() {
+	public String getDuree() {
 		return duree;
 	}
-	public void setDuree(int duree) {
+	public void setDuree(String duree) {
 		this.duree = duree;
 	}
 	public int getNbVue() {
@@ -115,11 +116,17 @@ public class Video {
 	public void setListActeur(Vector<Acteur> listActeur) {
 		this.listActeur = listActeur;
 	}
-	public Realisateur getRealisateur() {
+	public Participant getRealisateur() {
 		return realisateur;
 	}
-	public void setRealisateur(Realisateur realisateur) {
+	public void setRealisateur(Participant realisateur) {
 		this.realisateur = realisateur;
+	}
+	public String getImagePoster() {
+		return imagePoster;
+	}
+	public void setImagePoster(String imagePoster) {
+		this.imagePoster = imagePoster;
 	}
 	
 	

@@ -46,7 +46,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="accueil.jsp" class="site_title"><span class='logo_netflox'><i class="fa fa-video-camera"></i></span> <span>NetFlox Admin.</span></a>
+              <a href="index.jsp" class="site_title"><span class='logo_netflox'><i class="fa fa-video-camera"></i></span> <span>NetFlox Admin.</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -115,10 +115,10 @@
 
         <!-- page content -->
          <div class="right_col" role="main">
-         
+          <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3><i class="fa fa-users"/> </i> Gestion des clients</h3>
+                <h3><i class="fa fa-film"></i> Gestion des Series</h3>
               </div>
 
               <div class="title_right">
@@ -127,68 +127,99 @@
                 </div>
               </div>
             </div>
-            <div class="clearfix"></div> 
-          
+            <div class="clearfix"></div>
             <div class="row">
-              <div class="col-md-12 col-sm-12 col-xs-12">
+              
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Liste clients <small></small></h2>
-                  
-                     
+                    <h2> Ajouter un épisode<small></small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                    </ul>
                     <div class="clearfix"></div>
                   </div>
-                  <div class="x_content">
-                  <br />
-                 <button class="btn btn-success" data-toggle="modal" data-target="#myModal"> <i class="fa fa-plus"></i> Ajouter</button>
-                      <c:set var="count" value="0" scope="page" />
-                      <c:choose>
-                      	<c:when test="${! empty listClient}">
-                      	 <table id="tableClient" class="table table-striped table-bordered">
-                      <thead>
-                        <tr>
-                          <th>#</th>
-                          <th>Nom</th>
-                          <th>Prenom</th>
-                          <th>Email</th>
-                          <th>Tel</th>
-                          <th>Action</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                      		 <c:forEach items="${listClient}" var="client">
-                      			<tr>
-                      			<c:set var="count" value="${count + 1}" scope="page"/>
-			                          <td><c:out value="${count}"></c:out></td>
-			                          <td><c:out value="${client.nomClient}"></c:out> </td>
-				                      <td><c:out value="${client.prenomClient}"></c:out></td> 
-				                      <td><c:out value="${client.email}"></c:out> </td>
-				                      <td><c:out value="${client.tel}"></c:out> </td>
-				                      <td><font color="red" ><a class="btn btn-success" href="ClientServlet?update=true&idClient=${client.idClient}"><i class="fa fa-pencil"></i> Modif</a><a class="btn btn-danger" href="GestionClientServlet?supp=true&idClient=${client.idClient}"> <i class="fa fa-trash"></i> Supp</a></font> </td>
-                       		    </tr>
-                       		    
-                     		 </c:forEach>
-        			    
-                      </tbody>
-                    </table>
-                      	
-                      	</c:when>
-                      	
-                      	<c:otherwise>
-                      		<h1>Aucun client retrouvé </h1>
-                      	</c:otherwise>
+					
+      		                      
+                      <form class="form-horizontal form-label-left" method="post" action="EpisodeServlet" enctype="multipart/form-data">
                       
-               </c:choose>
-                     
+                      
+
+                          <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Intitulé de l'episode
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                              <input type="text" name="titre" id="titre" required="required" class="form-control col-md-7 col-xs-12">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Durée <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                              <input type="text" id="duree" name="duree" required="required" class="form-control col-md-7 col-xs-12">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="date" class="control-label col-md-3 col-sm-3 col-xs-12">Date de sortie</label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                              <input id="date" class="form-control col-md-7 col-xs-12" type="Date" name="dateSortie">
+                            </div>
+                          </div>
+                         
+                          
+                          
+                          
+                           <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Prix de vente
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                             <input id="prixVente" class="date-picker form-control col-md-7 col-xs-12" name="prixVente" required="required" type="text">
+                            </div>
+                          </div>
+                          
+                          <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Id saison
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                             <input id="prixVente" class="date-picker form-control col-md-7 col-xs-12" name="prixVente" required="required" type="text">
+                            </div>
+                          </div>
+						
+					
                        
-                     </div>
-                     
-                     </div>
-                     
-                     </div>
-                     </div>
-                     
-    
+                       
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Image Poster 
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input class="date-picker form-control col-md-7 col-xs-12" name="fichier1"  type="file">
+                        </div>
+                      </div>
+                      
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Charger la video 
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input class="date-picker form-control col-md-7 col-xs-12" name="fichier2" type="file">
+                        </div>
+                      </div>
+                       <div class="ln_solid"></div>
+                       <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                          <a  class="btn btn-danger" href="SerieServlet" type="button"> <i class="fa fa-close"></i> Annuler</a>
+				
+                          <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Ajouter</button>
+                        </div>
+                      </div>
+                       
+                       
+                      </form>
+       
+		  
+                
+         </div>
+         </div>
+           </div>
+           </div> 
+           
         <!-- /page content -->
 
         <!-- footer content -->
@@ -202,77 +233,6 @@
       </div>
     </div>
 
-
-
-          <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <h3>Ajouter un client </h3>
-          
-          
-        </div>
-        <div class="modal-body">
-        
-        <form method="POST" action="GestionClientServlet?action=insert" class="form-horizontal form-label-left"> 
-          	        <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nom
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" name="nom"  id="first-name" required="required" class="form-control col-md-7 col-xs-12">
-                        </div>
-                      </div> 
-                      
-                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Prenom
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" name="prenom"  id="first-name" required="required" class="form-control col-md-7 col-xs-12">
-                        </div>
-                      </div> 
-                      
-                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Email
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" name="email"  id="first-name" required="required" class="form-control col-md-7 col-xs-12">
-                        </div>
-                      </div> 
-                      
-                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tel
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" name="tel"  id="first-name" required="required" class="form-control col-md-7 col-xs-12">
-                        </div>
-                      </div> 
-                      
-                      <br>
-                      <div class="form-group">
-                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                          <button class="btn btn-danger" type="button" data-dismiss="modal"> <i class="fa fa-close"></i> Annuler</button>
-				
-                          <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Ajouter</button>
-                        </div>
-                      </div>         
-          </form>
-          
-        </div>
-        <div class="modal-footer">
-          
-        </div>
-      </div>
-      
-    </div>
-  </div>
-    
-    
-
-    
-    
     <!-- jQuery -->
     <script src="vendors/jquery/dist/jquery.min.js"></script>
     
@@ -285,22 +245,42 @@
     <!-- Bootstrap -->
     <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- FastClick -->
-  
+    <script src="../vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="../vendors/nprogress/nprogress.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <script src="../vendors/iCheck/icheck.min.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="../vendors/moment/min/moment.min.js"></script>
+    <script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <!-- bootstrap-wysiwyg -->
+    <script src="../vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
+    <script src="../vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
+    <script src="vendors/google-code-prettify/src/prettify.js"></script>
+    <!-- jQuery Tags Input -->
+    <script src="../vendors/jquery.tagsinput/src/jquery.tagsinput.js"></script>
+    <!-- Switchery -->
     <script src="vendors/switchery/dist/switchery.min.js"></script>
     <!-- Select2 -->
     <script src="vendors/select2/dist/js/select2.full.min.js"></script>
     <!-- Parsley -->
- 
+    <script src="../vendors/parsleyjs/dist/parsley.min.js"></script>
+    <!-- Autosize -->
+    <script src="../vendors/autosize/dist/autosize.min.js"></script>
+    <!-- jQuery autocomplete -->
+    <script src="../vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script>
+    <!-- starrr -->
     <script src="vendors/starrr/dist/starrr.js"></script>
+    
+    <script src="vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="js/custom.min.js"></script>
     
-	<script type="text/javascript">
-	$(document).ready(function() {
-	    $('#tableClient').DataTable();
-	} );
-	</script>
+	
+	
+	
 
-	</br></br></br></br></br>
   </body>
 </html>

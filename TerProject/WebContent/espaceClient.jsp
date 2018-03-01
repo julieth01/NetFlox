@@ -16,7 +16,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="css/Template/bootstrap.min.css" rel="stylesheet">
-     <link href="css/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="css/font-awesome/css/font-awesome.css" rel="stylesheet">
     <!-- Custom styles for this template -->
    
     

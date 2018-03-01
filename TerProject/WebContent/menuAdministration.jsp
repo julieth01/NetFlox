@@ -5,8 +5,8 @@
                   <li><a><i class="fa fa-film"></i> Videos <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="UploadVideoServlet">Ajouter</a></li>
-                      <li><a href="index2.html">Gerer</a></li>
-                      <li><a href="index2.html">Series</a></li>
+                      <li><a href="GestionVideoServlet">Gerer</a></li>
+                      <li><a href="SerieServlet">Series</a></li>
                       
                     </ul>
                   </li>

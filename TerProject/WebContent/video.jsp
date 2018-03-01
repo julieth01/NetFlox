@@ -118,7 +118,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Gestion des vidéos</h3>
+                <h3><i class="fa fa-film"></i> Gestion des vidéos</h3>
               </div>
 
               <div class="title_right">
@@ -132,7 +132,7 @@
               
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Ajouter une vidéo<small></small></h2>
+                    <h2> Ajouter une vidéo<small></small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                     </ul>
                     <div class="clearfix"></div>
@@ -343,8 +343,13 @@
                       </div>
    						</form>	
                     </div>
-
+		  
+                
          </div>
+         </div>
+           </div>
+           </div> 
+           
         <!-- /page content -->
 
         <!-- footer content -->

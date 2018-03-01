@@ -80,14 +80,29 @@ public class GestionClientServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		//Gestion de la mise à jour du client
-		
-		
+
 		String nom=(String) request.getParameter("nom");
 		String prenom=(String) request.getParameter("prenom");
 		String email=(String) request.getParameter("email");
 		String tel=(String) request.getParameter("tel");
 		
+		String action=(String) request.getParameter("action");
 	
+		/*Si action a effectuer est un insert alors 
+		 * on fait une insertion d'un nouveau client dans la base
+		 */
+		if(action!=null && action.equals("insert")){
+			try {
+				ClientModel clientModel=new ClientModel();
+				
+				clientModel.saveClient(nom, prenom, email, tel, "NetFlox2018");
+				//Redirection vers le servlet EspaceClientServlet
+				response.sendRedirect(request.getContextPath() + "/ClientServlet");
+				
+			} catch (ClassNotFoundException | SQLException e) {System.out.println(e.getMessage());  }
+			
+		}
+		else{
 		try {
 			
 				if(nom==null || prenom==null || email==null || tel==null){
@@ -117,6 +132,7 @@ public class GestionClientServlet extends HttpServlet {
 		} 
 	
 	}
+}
 		
 		
 }

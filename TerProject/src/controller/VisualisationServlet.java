@@ -38,7 +38,7 @@ public class VisualisationServlet extends HttpServlet {
 		
 		//Verification de session, si elle n'existe pas on renvoie l'utilisateur vers la page de connexion
 		if(client!=null){
-		RequestDispatcher rd=request.getRequestDispatcher("/visualisation.jsp");
+		RequestDispatcher rd=request.getRequestDispatcher("/visualisation2.jsp");
 		rd.forward(request, response);
 		}else{
 		RequestDispatcher rd=request.getRequestDispatcher("/login.jsp");

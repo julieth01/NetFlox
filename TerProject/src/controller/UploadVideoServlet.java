@@ -46,7 +46,7 @@ public class UploadVideoServlet extends HttpServlet {
 	private static final int TAILLE_TAMPON = 10240;
 	private static String CHAMP_FICHIER="fichier1";
 	private static String CHAMP_FICHIER2="fichier2";
-	private static String CHEMIN="C:/Users/USER/Documents/TER_Uploads/";
+	private static String CHEMIN="C:/Users/USER/git/LocalNetFloxRepository/TerProject/WebContent/uploads/";
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -249,7 +249,7 @@ public class UploadVideoServlet extends HttpServlet {
 	 * est de type File et la méthode retourne son nom, sinon il s'agit d'un champ de formulaire 
 	 * classique et la méthode retourne null. 
 	 */
-	private static String getNomFichier( Part part ) {
+	public static String getNomFichier( Part part ) {
 		
 		System.out.println("Get Nom Fichier est en cours de lecture");
 		System.out.println("La valeur du part est"+ part.getHeader("content-disposition"));
@@ -274,7 +274,7 @@ public class UploadVideoServlet extends HttpServlet {
 	 * Méthode utilitaire qui a pour but d'écrire le fichier passé en paramètre
 	 * sur le disque, dans le répertoire donné et avec le nom donné.
 	 */
-	private void ecrireFichier( Part part, String nomFichier, String chemin ) throws IOException {
+public void ecrireFichier( Part part, String nomFichier, String chemin ) throws IOException {
 	    /* Prépare les flux. */
 	    BufferedInputStream entree = null;
 	    BufferedOutputStream sortie = null;

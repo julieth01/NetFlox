@@ -49,6 +49,8 @@ public class CategorieModel extends NetfloxDB {
 		return listCategorie;
 	}
 	
+
+	
 	
 	//Methode permettant d'enregistrer une categorie de video dans la base de données
 	public void saveCategorie(String libelleCategorie){

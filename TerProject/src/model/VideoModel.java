@@ -7,7 +7,10 @@ import java.sql.Statement;
 import java.util.Date;
 import java.util.Vector;
 
+import entities.Categorie;
 import entities.Client;
+import entities.Genre;
+import entities.Video;
 
 public class VideoModel extends NetfloxDB {
 
@@ -20,7 +23,7 @@ public class VideoModel extends NetfloxDB {
 	
 	
 	
-	public void saveVideo(String titre, String duree, java.sql.Date dateSortie, String resume, double prixVente, int idCategorie, int idGenre){
+	public void saveVideo(String titre, String duree, java.sql.Date dateSortie, String resume, double prixVente, Integer idCategorie, Integer idGenre){
 		
 		try
 		{
@@ -95,5 +98,130 @@ public class VideoModel extends NetfloxDB {
 	}
 	
 	
+	/* 
+	 * Selection des video
+	 */
+	
+	public Vector<Video> selectVideo(Integer idVideo){
+		
+		Vector<Video> listVideo=new Vector<>();
+		try{
+			Statement st=conn.createStatement();
+			ResultSet rs;
+				if(idVideo!=null){
+				rs=st.executeQuery("SELECT * FROM VIDEO WHERE IDVIDEO="+idVideo);
+				}else{
+				rs=st.executeQuery("SELECT * FROM VIDEO");
+				}
+		
+		Video video;
+		Categorie categorie;
+		Genre genre;
+		CategorieModel categorieModel=new CategorieModel();
+		GenreModel genreModel=new GenreModel();
+		
+		while(rs.next()){
+		video=new Video();
+		video.setIdVideo(rs.getInt("idVideo"));
+		video.setTitre(rs.getString("titre"));
+		video.setCheminAcces(rs.getString("Cheminaccess"));
+		video.setDateSortie(rs.getDate("dateSortie"));
+		video.setDuree(rs.getString("duree"));
+		video.setNbTelechargement(rs.getInt("nbTelechargement"));
+		video.setNbVue(rs.getInt("nbVue"));
+		video.setImagePoster(rs.getString("imagePoster"));
+		
+		/*
+		 * Selection de la categorie associée a la video
+		 */
+		categorie=new Categorie();
+		categorie=categorieModel.selectCategorie(rs.getInt("idCategorie")).get(0);
+		
+		video.setIdCategorie(categorie);
+		
+		/*
+		 * selection du genre associé à la video
+		 */
+		genre=genreModel.selectGenre(rs.getInt("idGenre")).get(0);
+		video.setIdGenre(genre);
+		
+		/*
+		 * Liste d'acteur associée
+		 */
+		
+		
+		/*
+		 * Le réalisateur associé
+		 */
+		
+		//Ajout de la video courante à la liste
+			listVideo.add(video);
+		}
+			
+		}catch(Exception e){}
+		
+		return listVideo;
+	}
+	
+	
+	
+	/*
+	 * 
+	 */
+	public Vector<Video> selectEpisode(Integer idSaison){
+		
+		Vector<Video> listVideo=new Vector<>();
+		try{
+			Statement st=conn.createStatement();
+			ResultSet rs;
+			
+			rs=st.executeQuery("SELECT * FROM VIDEO WHERE IDSAISON="+idSaison);
+	
+		
+		Video video;
+	
+		
+		while(rs.next()){
+		video=new Video();
+		video.setIdVideo(rs.getInt("idVideo"));
+		video.setTitre(rs.getString("titre"));
+		video.setCheminAcces(rs.getString("Cheminaccess"));
+		video.setDateSortie(rs.getDate("dateSortie"));
+		video.setDuree(rs.getString("duree"));
+		video.setNbTelechargement(rs.getInt("nbTelechargement"));
+		video.setNbVue(rs.getInt("nbVue"));
+		video.setImagePoster(rs.getString("imagePoster"));
+
+		
+		/*
+		 * Liste d'acteur associée
+		 */
+		
+		
+		/*
+		 * Le réalisateur associé
+		 */
+		
+		//Ajout de la video courante à la liste
+			listVideo.add(video);
+		}
+			
+		}catch(Exception e){}
+		
+		return listVideo;
+	}
+	
+	
+	
+	/*
+	 * Suppression d'une video connaissant l'idVideo
+	 */
+	public void deleteVideo(int idVideo){
+		try{
+			Statement st=conn.createStatement();
+			st.executeUpdate("DELETE FROM VIDEO WHERE idvideo="+idVideo);
+			
+		}catch(Exception e){}
+	}
 	
 }

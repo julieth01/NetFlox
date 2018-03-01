@@ -2,6 +2,7 @@ package model;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class ActeurModel extends NetfloxDB {
 
@@ -28,6 +29,18 @@ public class ActeurModel extends NetfloxDB {
 			
 		} catch (Exception e) {System.out.println(e.getMessage());}
 
+	}
+	
+
+	/*
+	 *	Suppression d'un acteur connaissant l'idVideo 
+	 */
+	public void deleteActeur(int idVideo){
+		try{
+			Statement st=conn.createStatement();
+			st.executeUpdate("DELETE FROM ACTEUR WHERE idvideo="+idVideo);
+			
+		}catch(Exception e){}
 	}
 	
 }

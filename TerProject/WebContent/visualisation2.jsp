@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <!-- Font Awesome -->
     <link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
@@ -46,7 +47,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="accueil.jsp" class="site_title"><span class='logo_netflox'><i class="fa fa-video-camera"></i></span> <span>NetFlox Admin.</span></a>
+              <a href="index.jsp" class="site_title"><span class='logo_netflox'><i class="fa fa-video-camera"></i></span> <span>NetFlox</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -59,7 +60,7 @@
 
             <!-- Inclusion du Menu d'administration -->
             
-             <%@include file="menuAdministration.jsp" %>
+             <%@include file="menuClient.jsp" %>
 
             <!-- /sidebar menu -->
 
@@ -115,10 +116,10 @@
 
         <!-- page content -->
          <div class="right_col" role="main">
-         
+          <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3><i class="fa fa-gear"/> </i> Réglage des données paramètres</h3>
+                <h3><i class="fa fa-film"></i> Streaming direct</h3>
               </div>
 
               <div class="title_right">
@@ -127,71 +128,107 @@
                 </div>
               </div>
             </div>
-            <div class="clearfix"></div> 
-          
+            <div class="clearfix"></div>
             <div class="row">
-              <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                
               
+                <div class="x_panel">
                   <div class="x_title">
-                    <h2>Liste des genres de videos <small></small></h2>
-
+                    <h2> <small></small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                    </ul>
                     <div class="clearfix"></div>
                   </div>
-                  <div class="x_content">
-                  <br />
-                  
-                      <button class="btn btn-success" data-toggle="modal" data-target="#myModal"> <i class="fa fa-plus"></i> Ajouter</button>
-                      
-                      <c:set var="count" value="0" scope="page" />
-                      
-                      <c:choose>
-                      	<c:when test="${! empty listGenre}">
-                      	 <table id="tableGenre" class="table table-striped table-bordered">
-                      <thead>
-                        <tr>
-                          <th>#</th>
-                          <th>id</th>
-                          <th>Libellé du genre</th>
-                          <th>Action</th>
-                          
-                        </tr>
-                      </thead>
-                      <tbody>
-                      		 <c:forEach items="${listGenre}" var="genre">
-                      			<tr>
-                      			<c:set var="count" value="${count + 1}" scope="page"/>
-			                          <td><c:out value="${count}"></c:out></td>
-			                          <td><c:out value="${genre.idGenre}"></c:out> </td>
-				                      <td><c:out value="${genre.libelleGenre}"></c:out></td> 
-				                      
-				                      <td><font color="red" ><a class="btn btn-success" href="GenreServlet?update=true&idGenre=${genre.idGenre}"><i class="fa fa-pencil"></i> Modif</a><a class="btn btn-danger" href="GestionGenreServlet?supp=true&idGenre=${genre.idGenre}"> <i class="fa fa-trash"></i> Supp</a></font> </td>
-                       		    </tr>
-                       		    
-                     		 </c:forEach>
-        			    
-                      </tbody>
-                    </table>
-                      	
-                      	</c:when>
-                      	
-                      	<c:otherwise>
-                      		<h1>Aucun genre retrouvé</h1>
-                      	</c:otherwise>
-                      
-               </c:choose>
-                     
-                        
-                     
-                   
-                     </div>
-                     
-                     </div>
-                     
-                     </div>
-                     </div>
-                    
+			
+	
+	
+
+	
+    <div class="row">
+    <div class="col-lg-9">
+
+          <div class="row">
+          
+           <div class="col-lg-12">
+            <video src="images/PSquare.mp4" controls poster="images/back.jpg" width="100%" height="500px" > </video>
+          </div>
+          
+          
+          </div>
+          <br>
+ <h4>Voir nos suggestions de films similaires</h4>
+ <hr>
+ <div class="row">
+           
+         <div class="col-lg-4">
+           <a href="#"><img src="images/image1.jpg" /></a>
+          </div><!-- /.col-lg-3 -->
+          <div class="col-lg-4">
+            <img src="images/mentaliste.jpg" />
+          </div><!-- /.col-lg-3 -->
+          <div class="col-lg-4">
+            <img src="images/life_sentence_poster.jpg" />
+          </div><!-- /.col-lg-4 -->
+       
+          </div>
+	
+
+     </div>
+     
+     <div class="col-lg-3">
+     
+     <h4>Description du film</h4>
+     <hr color="orange">
+      <img src="images/mentaliste.jpg"/>
+     
+     
+     
+     </div>
+     
+     
+     
+          </div><!-- /.row -->
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				
+				
+				</div><!--Fin row  -->   
+		  </div>
+		  </div>
+		  </div>
+		  
+                
+         </div>
         <!-- /page content -->
 
         <!-- footer content -->
@@ -206,50 +243,20 @@
     </div>
     
     
-     <!--Modal -->
     
     
-      <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
     
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <h3>Ajouter un genre </h3>
-          
-          
-        </div>
-        <div class="modal-body">
+    
+    
         
-          <form method="POST" action="GestionGenreServlet?action=insert" class="form-horizontal form-label-left"> 
-          	        <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Libelle Genre<span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" name="libelleGenre"  id="first-name" required="required" class="form-control col-md-7 col-xs-12">
-                        </div>
-                      </div> 
-                      
-                      <br>
-                      <div class="form-group">
-                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                          <button class="btn btn-danger" type="button" data-dismiss="modal"> <i class="fa fa-close"></i> Annuler</button>
-				
-                          <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Ajouter</button>
-                        </div>
-                      </div>         
-          </form>
-          
-        </div>
-        <div class="modal-footer">
-          
-        </div>
-      </div>
-      
-    </div>
-  </div>
     
+   
+    
+    
+    
+    
+    
+
     <!-- jQuery -->
     <script src="vendors/jquery/dist/jquery.min.js"></script>
     
@@ -290,17 +297,12 @@
     <script src="../vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script>
     <!-- starrr -->
     <script src="vendors/starrr/dist/starrr.js"></script>
+    
+    <script src="vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="js/custom.min.js"></script>
     
-	<script type="text/javascript">
-	$(document).ready(function() {
-	    $('#tableGenre').DataTable();
-	} );
-	</script>
-	
-	
-	
-	</br></br></br></br></br>
+
+
   </body>
 </html>
