@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.Vector;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,19 +11,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-//Auteur: OUMAROU KABORE
+import model.VideoModel;
+import entities.Video;
 
 /**
- * Servlet implementation class DeconnexionServlet
+ * Servlet implementation class AcceuilServlet
  */
-@WebServlet("/DeconnexionServlet")
-public class DeconnexionServlet extends HttpServlet {
+@WebServlet("/AcceuilServlet")
+public class AcceuilServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeconnexionServlet() {
+    public AcceuilServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,22 +33,32 @@ public class DeconnexionServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		
-		//Destruction de la session
-		if(request.getSession().getAttribute("client")!=null){
-			request.getSession().invalidate();
+		//Selection des videos disponibles
+		VideoModel videoModel;
+		try {
+			
+			videoModel = new VideoModel();
+			Vector<Video> listVideo=videoModel.selectVideo(null);
+			request.setAttribute("listVideo",listVideo);
+			
+			RequestDispatcher rd=request.getRequestDispatcher("/accueil2.jsp");
+			rd.forward(request, response);
+			
+		} catch (ClassNotFoundException | SQLException e) {
+		
 		}
-		
-		//Redirection vers le servlet EspaceClientServlet
-		response.sendRedirect(request.getContextPath() + "/AcceuilServlet");
+	
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	//Recherche
+		
+		
+		
 	}
 
 }

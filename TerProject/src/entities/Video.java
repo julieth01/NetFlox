@@ -21,7 +21,7 @@ public class Video {
 	private boolean estEpisode;
 	private String imagePoster;
 	
-	private Vector<Acteur> listActeur;
+	private Vector<Participant> listActeur;
 	private Participant realisateur;
 	
 
@@ -110,10 +110,10 @@ public class Video {
 	public void setEstEpisode(boolean estEpisode) {
 		this.estEpisode = estEpisode;
 	}
-	public Vector<Acteur> getListActeur() {
+	public Vector<Participant> getListActeur() {
 		return listActeur;
 	}
-	public void setListActeur(Vector<Acteur> listActeur) {
+	public void setListActeur(Vector<Participant> listActeur) {
 		this.listActeur = listActeur;
 	}
 	public Participant getRealisateur() {

@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <!-- Font Awesome -->
     <link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
@@ -46,7 +47,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="accueil.jsp" class="site_title"><span class='logo_netflox'><i class="fa fa-video-camera"></i></span> <span>NetFlox Admin.</span></a>
+              <a href="index.jsp" class="site_title"><span class='logo_netflox'><i class="fa fa-video-camera"></i></span> <span>NetFlox</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -59,7 +60,7 @@
 
             <!-- Inclusion du Menu d'administration -->
             
-             <%@include file="menuAdministration.jsp" %>
+             <%@include file="menuClient.jsp" %>
 
             <!-- /sidebar menu -->
 
@@ -115,10 +116,10 @@
 
         <!-- page content -->
          <div class="right_col" role="main">
-         
+          <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3><i class="fa fa-film"/> </i> Gestion les videos</h3>
+                <h3><i class="fa fa-film"></i> Streaming direct</h3>
               </div>
 
               <div class="title_right">
@@ -127,55 +128,78 @@
                 </div>
               </div>
             </div>
-            <div class="clearfix"></div> 
-          
+            <div class="clearfix"></div>
             <div class="row">
-              <div class="col-md-12 col-sm-12 col-xs-12">
+              
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Liste des videos disponibles <small></small></h2>
-                  
-                     
+                    <h2> <small></small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                    </ul>
                     <div class="clearfix"></div>
                   </div>
-                  <div class="x_content">
-                  <br />
-                  
-                      <c:set var="count" value="0" scope="page" />
-                      <c:choose>
-                      	<c:when test="${! empty listVideo}">
-                      	 
-                      	 <div class="row">
-                      		 <c:forEach items="${listVideo}" var="video">
-						
-                      				<div class="col-md-2">
-                      				<img alt="Pas de poster" width="180px" height="250px" src="uploads/${video.imagePoster}">
-                      				<br><br><b>Titre:</b> ${video.getTitre()}<br><b>Catégorie:</b> ${video.getIdCategorie().getLibelleCategorie()}<br>
-                      				<b>Genre:</b> ${video.getIdGenre().getLibelleGenre()}
-                      				<br><a class="btn btn-danger" href="GestionVideoServlet?action=supp&idVideo=${video.idVideo}"> <i class="fa fa-trash"></i> supprimer</a> 
-                      				</div>
-                      				
-                     		 </c:forEach>
-						</div>
-                      	</c:when>
-                      	
-                      	<c:otherwise>
-                      		<h1>Aucune video retrouvée</h1>
-                      	</c:otherwise>
-                      
-               </c:choose>
-                     
-                        
-                     
-                   
-                     </div>
-                     
-                     </div>
-                     
-                     </div>
-                     </div>
-                     </div>
-                    
+			
+	
+	
+
+	
+    <div class="row">
+		
+		<h3>Abonnez vous ou louez la video afin de pouvoir la suivre</h3>
+        
+          
+    </div>
+    
+ 
+
+
+
+	
+
+     </div>
+     
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				
+				
+				</div><!--Fin row  -->   
+		  </div>
+		  </div>
+		  </div>
+		  
+                
+         </div>
         <!-- /page content -->
 
         <!-- footer content -->
@@ -188,6 +212,21 @@
         <!-- /footer content -->
       </div>
     </div>
+    
+    
+    
+    
+    
+    
+    
+        
+    
+   
+    
+    
+    
+    
+    
 
     <!-- jQuery -->
     <script src="vendors/jquery/dist/jquery.min.js"></script>
@@ -229,17 +268,12 @@
     <script src="../vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script>
     <!-- starrr -->
     <script src="vendors/starrr/dist/starrr.js"></script>
+    
+    <script src="vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="js/custom.min.js"></script>
     
-	<script type="text/javascript">
-	$(document).ready(function() {
-	    $('#tableClient').DataTable();
-	} );
-	</script>
-	
-	
-	
-	</br></br></br></br></br>
+
+
   </body>
 </html>

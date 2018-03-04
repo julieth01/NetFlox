@@ -80,7 +80,7 @@
           <div class="row">
           
            <div class="col-lg-12">
-            <video src="images/PSquare.mp4" controls poster="images/back.jpg" width="100%" height="500px" > </video>
+            <video src="uploads/${video.cheminAccess}" controls poster="uploads/${video.imagePoster}" width="100%" height="500px" > </video>
           </div>
           
           
@@ -109,7 +109,7 @@
      
      <h5>Description du film</h5>
      <hr color="orange">
-      <img src="images/mentaliste.jpg"/>
+      <img src="uploads/${video.imagePoster}"/>
      <br/> <br/> <br/> <br/><br/><br/><br/><br/><br/><br/><br>
      
      

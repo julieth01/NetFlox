@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <!-- Font Awesome -->
     <link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
@@ -46,7 +47,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="accueil.jsp" class="site_title"><span class='logo_netflox'><i class="fa fa-video-camera"></i></span> <span>NetFlox Admin.</span></a>
+              <a href="index.jsp" class="site_title"><span class='logo_netflox'><i class="fa fa-video-camera"></i></span> <span>NetFlox</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -59,7 +60,7 @@
 
             <!-- Inclusion du Menu d'administration -->
             
-             <%@include file="menuAdministration.jsp" %>
+             <%@include file="menuClient.jsp" %>
 
             <!-- /sidebar menu -->
 
@@ -91,9 +92,23 @@
               <div class="nav toggle">
                 <a id="menu_toggle"><i class="fa fa-bars"></i></a>
               </div>
-
+					
               <ul class="nav navbar-nav navbar-right">
-                <li class="">
+             
+             <c:choose>
+             	<c:when test="${empty client}">
+             	
+             	    <li class="">
+                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal"><i class="fa fa-user"></i> S'identifier</button>
+                    <span class=" fa fa-angle-down"></span>
+                  </a>
+                 
+                </li>
+            </c:when>
+             	
+             	<c:otherwise>
+             	 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                     <img src="images/img.jpg" alt=""><c:out value="${client.prenomClient}" /> <c:out value="${client.nomClient}" />
                     <span class=" fa fa-angle-down"></span>
@@ -108,6 +123,11 @@
                 </li>
 
               </ul>
+             	
+             	</c:otherwise>
+             
+             </c:choose>
+
             </nav>
           </div>
         </div>
@@ -115,34 +135,37 @@
 
         <!-- page content -->
          <div class="right_col" role="main">
-         
+          <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3><i class="fa fa-film"/> </i> Gestion les videos</h3>
+                <h3><i class="fa fa-film"></i> Bienvenue sur NetFlox (Streaming direct)</h3>
               </div>
-
-              <div class="title_right">
+				  <div class="title_right">
                 <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                  
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Rechercher...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Ok</button>
+                    </span>
+                  </div>
                 </div>
               </div>
+              
             </div>
-            <div class="clearfix"></div> 
-          
+            <div class="clearfix"></div>
             <div class="row">
-              <div class="col-md-12 col-sm-12 col-xs-12">
+              
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Liste des videos disponibles <small></small></h2>
-                  
-                     
+                    <h2> <small></small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                    </ul>
                     <div class="clearfix"></div>
                   </div>
-                  <div class="x_content">
-                  <br />
-                  
-                      <c:set var="count" value="0" scope="page" />
-                      <c:choose>
+			
+	
+	    
+				                      <c:choose>
                       	<c:when test="${! empty listVideo}">
                       	 
                       	 <div class="row">
@@ -152,7 +175,7 @@
                       				<img alt="Pas de poster" width="180px" height="250px" src="uploads/${video.imagePoster}">
                       				<br><br><b>Titre:</b> ${video.getTitre()}<br><b>Catégorie:</b> ${video.getIdCategorie().getLibelleCategorie()}<br>
                       				<b>Genre:</b> ${video.getIdGenre().getLibelleGenre()}
-                      				<br><a class="btn btn-danger" href="GestionVideoServlet?action=supp&idVideo=${video.idVideo}"> <i class="fa fa-trash"></i> supprimer</a> 
+                      				<br><a class="btn btn-info" href="VisualisationServlet?action=visualiser&idVideo=${video.idVideo}"> <i class="fa fa-film"></i> voir la vidéo</a> 
                       				</div>
                       				
                      		 </c:forEach>
@@ -165,17 +188,43 @@
                       
                </c:choose>
                      
-                        
-                     
-                   
-                     </div>
-                     
-                     </div>
-                     
-                     </div>
-                     </div>
-                     </div>
-                    
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				
+				
+				</div><!--Fin row  -->   
+		  </div>
+		  </div>
+		  </div>
+		  
+                
+         </div>
         <!-- /page content -->
 
         <!-- footer content -->
@@ -188,6 +237,118 @@
         <!-- /footer content -->
       </div>
     </div>
+    
+    
+    
+    
+    
+    
+    
+        
+    
+   
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Connexion à votre espace client </h3>
+         
+          
+        </div>
+        <div class="modal-body">
+        
+          <form method="POST" action="ConnexionServlet" class="form-horizontal form-label-left"> 
+          
+           <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Username<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" name="email"  id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+            </div> 
+            
+            
+           <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Password<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="password" name="email"  id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+            </div> 
+           
+           		<br>
+                      <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                          <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Connexion</button>
+                          <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModalInscription"> <i class="fa fa-disk"></i> S'inscrire</button>
+
+                        </div>
+                      </div>
+
+          	
+          		
+          </form>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  
+    <!-- Modal -->
+  <div class="modal fade" id="myModalInscription" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+        <h3>Inscription du client</h3>
+        
+          
+        </div>
+        <div class="modal-body">
+
+  		<form method="POST" action="InscriptionClientServlet"> 
+          	<input type="text" class="form-control" name="nom" placeholder="Nom" aria-describedby="basic-addon2"><br/>
+          	
+          	<input type="text" class="form-control" name="prenom" placeholder="Prenom" aria-describedby="basic-addon2"><br/>
+          	<input type="text" class="form-control" name="email" placeholder="Email" aria-describedby="basic-addon2"><br/>
+          	<input type="password" class="form-control" name="password" placeholder="Mot de passe" aria-describedby="basic-addon2"><br/>
+          	<input type="password" class="form-control" placeholder="Confirmation mot de passe" aria-describedby="basic-addon2"><br/>
+          	<input type="text" class="form-control" name="tel" placeholder="Tel" aria-describedby="basic-addon2"><br/>
+          	
+          	
+          	<button class="btn btn-lg btn-outline-danger"><i class="fa fa-save"></i> S'inscrire</button> 
+          	<button type="button" class="btn btn-lg btn-outline-default" data-dismiss="modal"><i class="fa fa-close"></i> Annuler</button>
+          	
+          </form>   
+                   
+        </div>
+        <div class="modal-footer">
+          <center>...</center>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+
+  
+   
+   
+   
+    
+    
+    
+    
+    
 
     <!-- jQuery -->
     <script src="vendors/jquery/dist/jquery.min.js"></script>
@@ -229,17 +390,12 @@
     <script src="../vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script>
     <!-- starrr -->
     <script src="vendors/starrr/dist/starrr.js"></script>
+    
+    <script src="vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="js/custom.min.js"></script>
     
-	<script type="text/javascript">
-	$(document).ready(function() {
-	    $('#tableClient').DataTable();
-	} );
-	</script>
-	
-	
-	
-	</br></br></br></br></br>
+
+
   </body>
 </html>

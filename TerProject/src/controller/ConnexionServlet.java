@@ -45,8 +45,8 @@ public class ConnexionServlet extends HttpServlet {
 		
 		if(client!=null){
 			System.out.println("La session n'est pas null");
-			RequestDispatcher rd=request.getRequestDispatcher("/accueil.jsp");
-			rd.forward(request, response);
+			//Redirection vers le servlet EspaceClientServlet
+			response.sendRedirect(request.getContextPath() + "/AccueilServlet");
 		}else{
 			RequestDispatcher rd=request.getRequestDispatcher("login.jsp");
 			rd.forward(request, response);
@@ -82,8 +82,8 @@ public class ConnexionServlet extends HttpServlet {
 					//response.sendRedirect(request.getContextPath() + "/ClientServlet");
 					
 					//Redirection vers la page d'acceuil
-					RequestDispatcher rd=request.getRequestDispatcher("/accueil.jsp");
-					rd.forward(request, response);
+					//Redirection vers le servlet EspaceClientServlet
+					response.sendRedirect(request.getContextPath() + "/AcceuilServlet");
 				}
 			}
 				

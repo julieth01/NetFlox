@@ -144,50 +144,72 @@
 
 	
     <div class="row">
+    
     <div class="col-lg-9">
 
-          <div class="row">
+            <video src="uploads/${video.cheminAcces}" controls poster="" width="100%" height="500px" > </video>
+    </div>
           
-           <div class="col-lg-12">
-            <video src="images/PSquare.mp4" controls poster="images/back.jpg" width="100%" height="500px" > </video>
-          </div>
+          <div class="col-lg-3">
+     
+     <h4>Description du film</h4>
+     <hr color="orange">
+      <img src="uploads/${video.imagePoster}"/><br>
+     <b>Titre:</b> ${video.titre} <br>
+     <b>Realisateur:</b> ${video.getRealisateur().getNomParticipant()}  ${video.getRealisateur().getPrenomParticipant()}<br>
+     <b>Acteurs:</b> <br>
+     <b>Genre:</b> ${video.getIdGenre().getLibelleGenre()} <br>
+     <b>Durée:</b> ${video.duree} <br>
+     <b>Date de sortie:</b> ${video.dateSortie} <br>
+     </div>
           
+      
+        
+        
           
-          </div>
+    </div>
+    
+ 
           <br>
  <h4>Voir nos suggestions de films similaires</h4>
  <hr>
  <div class="row">
            
-         <div class="col-lg-4">
-           <a href="#"><img src="images/image1.jpg" /></a>
-          </div><!-- /.col-lg-3 -->
-          <div class="col-lg-4">
-            <img src="images/mentaliste.jpg" />
-          </div><!-- /.col-lg-3 -->
-          <div class="col-lg-4">
-            <img src="images/life_sentence_poster.jpg" />
-          </div><!-- /.col-lg-4 -->
+         <div class="col-lg-12">
+   			
+   			<c:choose>
+                      	<c:when test="${! empty listVideoSimilaire}">
+                      	 
+                      	 <div class="row">
+                      		 <c:forEach items="${listVideoSimilaire}" var="video">
+						
+                      				<div class="col-md-2">
+                      				<img alt="Pas de poster" width="180px" height="250px" src="uploads/${video.imagePoster}">
+                      				<br><br><b>Titre:</b> ${video.getTitre()}<br>
+                      				<b>Genre:</b> ${video.getIdGenre().getLibelleGenre()}
+                      				<br><a class="btn btn-info" href="VisualisationServlet?action=visualiser&idVideo=${video.idVideo}"> <i class="fa fa-film"></i> voir la video</a> 
+                      				</div>
+                      				
+                     		 </c:forEach>
+						</div>
+                      	</c:when>
+                      	
+                      	<c:otherwise>
+                      		<h3>Aucune suggestion de vidéo</h3>
+                      	</c:otherwise>
+                      
+               </c:choose>
+   			
+   			
+   			
+   			
        
           </div>
 	
 
      </div>
      
-     <div class="col-lg-3">
      
-     <h4>Description du film</h4>
-     <hr color="orange">
-      <img src="images/mentaliste.jpg"/>
-     
-     
-     
-     </div>
-     
-     
-     
-          </div><!-- /.row -->
-      
 
 
 

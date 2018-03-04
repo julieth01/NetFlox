@@ -19,8 +19,10 @@
                   </li>
                   <li><a><i class="fa fa-gear"></i> Espace client <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="CategorieServlet">se connecter</a></li>
-                      <li><a href="GenreServlet">Genres de vidéo</a></li>
+                      <li><a href="CategorieServlet">Achats</a></li>
+                      <li><a href="GenreServlet">Location</a></li>
+                      <li><a href="GenreServlet">Abonnement</a></li>
+                      <li><a href="GenreServlet">Profil</a></li>
 
                     </ul>
                   </li>

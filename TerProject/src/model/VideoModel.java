@@ -10,6 +10,7 @@ import java.util.Vector;
 import entities.Categorie;
 import entities.Client;
 import entities.Genre;
+import entities.Participant;
 import entities.Video;
 
 public class VideoModel extends NetfloxDB {
@@ -152,17 +153,66 @@ public class VideoModel extends NetfloxDB {
 		
 		/*
 		 * Le réalisateur associé
+
+		RealisateurModel realisateurModel=new RealisateurModel();
+		Participant realisateur=realisateurModel.selectRealisateur(idVideo).get(0);
+		if(realisateur!=null){
+			video.setRealisateur(realisateur);
+			
+		}
 		 */
-		
 		//Ajout de la video courante à la liste
 			listVideo.add(video);
 		}
 			
-		}catch(Exception e){}
+		}catch(Exception e){System.out.println(e.getMessage());}
 		
 		return listVideo;
 	}
 	
+	
+	/*
+	 * Selectionne les autres video de la meme categorie que l'id de la video passé en parametre
+	 */
+	
+	public Vector<Video> selectVideoSimilaire(Integer idCategorie, int idVideo){
+		
+		Vector<Video> listVideo=new Vector<>();
+		try{
+			Statement st=conn.createStatement();
+			ResultSet rs;
+			
+				rs=st.executeQuery("SELECT * FROM VIDEO WHERE IDCATEGORIE="+idCategorie+ " AND idVideo !="+idVideo);
+				
+		
+		Video video;
+	
+		Genre genre;
+		GenreModel genreModel=new GenreModel();
+		
+		while(rs.next()){
+		video=new Video();
+		video.setIdVideo(rs.getInt("idVideo"));
+		video.setTitre(rs.getString("titre"));
+		video.setCheminAcces(rs.getString("Cheminaccess"));
+		video.setDateSortie(rs.getDate("dateSortie"));
+		video.setDuree(rs.getString("duree"));
+		video.setNbTelechargement(rs.getInt("nbTelechargement"));
+		video.setNbVue(rs.getInt("nbVue"));
+		video.setImagePoster(rs.getString("imagePoster"));
+		
+		
+		genre=genreModel.selectGenre(rs.getInt("idGenre")).get(0);
+		video.setIdGenre(genre);
+		
+		listVideo.add(video);
+		}
+		System.out.println(listVideo.size());
+	}catch (Exception e) {System.out.println(e.getMessage());}
+	return listVideo;
+	}
+		
+		
 	
 	
 	/*
