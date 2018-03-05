@@ -122,11 +122,8 @@
               </div>
 
             </div>
-            
-            
-            
-            
-             <div class="clearfix"></div>
+   
+            <div class="clearfix"></div>
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
@@ -139,6 +136,7 @@
                   
                   <div class="x_content">
                     <br />
+                    <!--  Formulaire modifier une catégorie -->
                     <form method="POST" action="GestionCategorieServlet?action=update&idCategorie=${updateCategorie.idCategorie}" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
                       <div class="form-group">

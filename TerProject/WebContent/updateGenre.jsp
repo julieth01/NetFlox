@@ -139,6 +139,9 @@
                   
                   <div class="x_content">
                     <br />
+                    <!-- Formulaire permettant de modifier les données du client
+                   	     Ce formulaire est envoyé au servlet GestionGenreServelt
+                    -->
                     <form method="POST" action="GestionGenreServlet?action=update&idGenre=${updateGenre.idGenre}" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
                       <div class="form-group">

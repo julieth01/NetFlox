@@ -159,8 +159,11 @@
                         </tr>
                       </thead>
                       <tbody>
+                      		<!-- Parcours la liste des administrateurs  -->
+                      		
                       		 <c:forEach items="${listAdministrateur}" var="admin">
                       			<tr>
+                      			<!-- Mise en place d'un compteur -->
                       			<c:set var="count" value="${count + 1}" scope="page"/>
 			                          <td><c:out value="${count}"></c:out></td>
 			                          <td><c:out value="${admin.nomAdmin}"></c:out> </td>
@@ -207,7 +210,7 @@
     </div>
     
     
-     <!--Modal -->
+     <!-- Fenetre modale de la -->
     
     
       <!-- Modal -->
